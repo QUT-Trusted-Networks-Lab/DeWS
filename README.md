@@ -72,9 +72,9 @@ This Tendermint ABCI application verifies and logs transactions from web service
 ### docker-compose.yml: 
 * The default docker-compose.yml file is provided by Tendermint with a 4-nodes setup.
 
-* This file has been modified to launch 15 nodes-testnet associated with cutomsized ABCI application.
+* This file has been modified to launch 15 nodes-testnet associated with the customized ABCI application.
 
-* This helps to set up multiple Docker containers for the web service. 
+* This also helps to set up multiple Docker containers for the web service. 
 
 ### testWS: 
 * To test and evaluate the end-to-end delay for POST/GET APIs.
