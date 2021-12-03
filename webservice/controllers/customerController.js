@@ -2,7 +2,6 @@ const db = require("../models");
 const consensusUtils = require("../consensus/consensusUtils")
 const Customer = db.Customer;
 
-// API to create new Customers Info in DB
 exports.createNewCustomer = async function (req, res) {
     // Validate request
     if (!req.body.name || !req.body.email || !req.body.address) {
@@ -94,7 +93,6 @@ exports.createNewCustomer = async function (req, res) {
     }
 };
 
-// API to get all Customers in DB
 exports.getAll = async function (req, res) {
     // Validate request
     if (req.query.length == 0 || !req.query.consensus) {
@@ -118,7 +116,7 @@ exports.getAll = async function (req, res) {
             return;
         }
         
-        // ============================== CALL CONSENSUS BEFORE RESPONSE DATA =============== 
+        // ============================== CALL CONSENSUS BEFORE REPLYING BACK TO CLIENT =============== 
         const tendermintResponse = await consensusUtils.sendTxData("GET", "Get All Customers", "customers", null, responseInfo);     
         if(!!tendermintResponse.error) {
             // Delete the created customer as tendermint rejected the transaction

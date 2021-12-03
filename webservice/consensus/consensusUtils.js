@@ -4,7 +4,6 @@ const TENDERMINT_URL = process.env.TENDERMINT_URL ;
 
 exports.sendTxData = async(requestMethod, apiInfo, requestURL, requestData, responseData) => {
     // 1. Prepare tx data to send  
-    // requestData.requestTime = new Date()
     const SERVER_INFO = process.env.SERVER_INFO;
     const txBody = {
         serverInfo: SERVER_INFO,
@@ -19,7 +18,6 @@ exports.sendTxData = async(requestMethod, apiInfo, requestURL, requestData, resp
     // 2. Call Consensus
     const tendermintResponse = await callConsensus(txBody);
     return tendermintResponse;
-    // ============================== END CALL CONSENSUS ============================== 
 }
 
 callConsensus = async(txBody) => {
