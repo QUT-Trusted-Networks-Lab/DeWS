@@ -1,1 +1,61 @@
 # Liable-WS
+
+############## How to run and  the WebService integrated Tendermint with 15 nodes ##############
+
+* Prerequisites: 
+- Install Tendermint: https://docs.tendermint.com/v0.35/introduction/install.html
+- Install Docker: https://docs.docker.com/engine/install/
+- Install Docker Compose: https://docs.docker.com/compose/install/
+
+* Copy .env file and init-docker folder in tendermint home folder (e.g. $TMHOME/init-docker and $TMHOME/.env).
+
+* Replace docker-compose.yml file in tendermint home folder (e.g. $TMHOME/docker-compose.yml). The given docker-compose.yml file contains 15-nodes setup with ABCI application and web servers.
+
+* Change the number of nodes in the Makefile at localnet-start target (In this case, the number of nodes is 15): 
+localnet-start: localnet-stop build-docker-localnode
+	@if ! [ -f build/node0/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/tendermint:Z tendermint/localnode testnet --config /etc/tendermint/config-template.toml --v 15 --o . --populate-persistent-peers --starting-ip-address 192.167.10.2; fi
+	docker-compose up
+
+* Go to tendermint home folder: 
+    cd $TMHOME
+
+* Create 15 nodes using command: 
+    tendermint testnet --v 15
+    
+* Build the tendermint binary using command: 
+    make build-linux
+
+* To start a 15-nodes testnet run: 
+    make localnet-start
+
+* To test the GET API run: python test_Get_API.py
+* To test the GET API run: python test_Post_API.py
+
+
+############## Web service integrated Tendermint ##############
+
+This project contains folders and files as following:
+1. tendermint-abci: Tendermint ABCI application written by Java
+This Tendermint ABCI application verifies and logs transactions from web service. 
+* Compatible with Tendermint version 0.32.3
+* To generate all protobuf-type classes run:
+./gradlew generateProto
+
+* How to start the Tendermint ABCI application (The application listens on 26658)
+./gradlew run
+
+2. webservice: APIs integrated Tendermint consensus, written by JavaScript
+* Install dependencies : npm install
+
+* To run web service: npm start or node server
+
+3. init-docker: contains files to build images.
+- abci.Dockerfile: to build tendermint-abci application image.
+- webservice.Dockerfile: to build web service image.
+- init-script.sql: to initialize database for each web server.
+
+4. docker-compose.yml: The default docker-compose.yml file is provided by Tendermint with a 4-nodes setup.
+This file has been modified to launch 15 nodes-testnet associated with cutomsized ABCI application.
+In addition, it helps to set up multiple Docker containers for the web service. 
+
+5. testWS: python files to evaluate the end-to-end delay when calling POST/GET APIs.
