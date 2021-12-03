@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-# ABCI start IP: 192.167.10.43
+# ABCI
   abci0:
     container_name: abci0
     image: "abci-image"
@@ -227,7 +227,7 @@ services:
       localnet:
         ipv4_address: 192.167.10.57
 
-# Node start IP: 192.167.10.2 
+# Node start IP: 192.167.10.2 (default configuration by Tendermint)
   node0:
     container_name: node0
     image: "tendermint/localnode"
@@ -455,7 +455,7 @@ services:
       localnet:
         ipv4_address: 192.167.10.16
 
-# Server start IP: 192.167.10.22 
+# Server 
   mysqldb0:
     container_name: mysqldb0
     image: mysql:5.7
@@ -721,7 +721,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.27
 
-#### Server 6
   mysqldb6:
     container_name: mysqldb6
     image: mysql:5.7
@@ -766,7 +765,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.28
 
-#### Server 7
   mysqldb7:
     container_name: mysqldb7
     image: mysql:5.7
@@ -811,7 +809,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.29
 
-#### Server 8
   mysqldb8:
     container_name: mysqldb8
     image: mysql:5.7
@@ -856,7 +853,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.30
 
-#### Server 9
   mysqldb9:
     container_name: mysqldb9
     image: mysql:5.7
@@ -901,7 +897,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.31
 
-#### Server 10
   mysqldb10:
     container_name: mysqldb10
     image: mysql:5.7
@@ -946,7 +941,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.32
         
-#### Server 11
   mysqldb11:
     container_name: mysqldb11
     image: mysql:5.7
@@ -991,7 +985,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.33
 
-#### Server 12
   mysqldb12:
     container_name: mysqldb12
     image: mysql:5.7
@@ -1036,7 +1029,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.34
 
-#### Server 13
   mysqldb13:
     container_name: mysqldb13
     image: mysql:5.7
@@ -1081,7 +1073,6 @@ services:
       localnet:
         ipv4_address: 192.167.10.35
 
-#### Server 14
   mysqldb14:
     container_name: mysqldb14
     image: mysql:5.7
