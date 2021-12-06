@@ -23,7 +23,7 @@ if __name__ == "__main__":
     result_file = '15_NODES_EVALUATE_POST.csv'
     with open(result_file, 'w') as file:
         file.write("No., Time without consensus(s), Time with consensus(s), End-to-end Delay, Response without consensus, Response with consensus\n")
-    n_time = 200
+    n_time = 1000
     for i in range(n_time):
         print("================================CALLING NO.{:d}: ================================".format(i+1))
         print('================================ WITHOUT CONSENSUS ================================')
