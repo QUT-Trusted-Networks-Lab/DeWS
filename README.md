@@ -1,4 +1,4 @@
-# Trusted-WS
+# DeWS
 
 ## Prerequisites: 
 * Install Tendermint: https://docs.tendermint.com/v0.35/introduction/install.html

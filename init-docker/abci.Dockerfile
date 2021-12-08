@@ -2,7 +2,7 @@ FROM gradle:7.3.0-jdk11 AS builder
 
 WORKDIR /app
 
-ENV GIT_URL="https://github.com/QUT-Trusted-Networks-Lab/Trusted-WS/archive/main.zip"
+ENV GIT_URL="https://github.com/QUT-Trusted-Networks-Lab/DeWS/archive/main.zip"
 
 RUN wget "${GIT_URL}" -P /app
 
