@@ -3,7 +3,7 @@ import random, time
 import json
 
 # TEST 15 Nodes
-base_url = "http://localhost:6881/customers"
+base_url = "http://localhost:6869/customers"
 headers =  {"Content-Type":"application/json"}
 
 def call_create_customer_API(consensus_param, index):
@@ -57,7 +57,7 @@ if __name__ == "__main__":
             print('Error when calling API')
         average_time_with_consensus += time_with_consensus
         print("         Time taken: {:.5f} ".format(time_with_consensus))
-        time.sleep(30)
+        time.sleep(20)
         with open(result_file, 'a') as file:
             file.write("{:d}, {:.5f}, {:.5f}, {:.5f}, {}, {}\n".format(i+1, time_without_consensus, time_with_consensus, time_with_consensus - time_without_consensus, response_without_consensus['consensusData'], response_with_consensus['consensusData']))
     average_time_without_consensus = average_time_without_consensus / n_time

@@ -2,7 +2,7 @@ import requests
 import random, time
 import json
 # TEST 15 Nodes
-base_url = "http://localhost:6881/customers"
+base_url = "http://localhost:6869/customers"
 headers =  {"Content-Type":"application/json"}
 
 def get_customer_API(consensus_param):
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print('================ Evaluate time difference calling get all customers GET API ================')
     average_time_without_consensus = 0;
     average_time_with_consensus = 0;
-    result_file = '15_NODES_EVALUATE_POST.csv'
+    result_file = '15_NODES_EVALUATE_GET.csv'
     with open(result_file, 'w') as file:
         file.write("No., Time without consensus(s), Time with consensus(s), End-to-end Delay, Response without consensus, Response with consensus\n")
     n_time = 1000
