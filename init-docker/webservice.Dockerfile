@@ -7,7 +7,7 @@ RUN wget "${GIT_URL}" -P /app
 
 RUN unzip /app/main.zip
 
-WORKDIR /app/TendermintWS-main/webservice
+WORKDIR /app/DeWS-main/webservice
 
 RUN npm install
 
