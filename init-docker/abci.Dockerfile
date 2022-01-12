@@ -8,10 +8,10 @@ RUN wget "${GIT_URL}" -P /app
 
 RUN unzip /app/main.zip
 
-WORKDIR /app/TendermintWS-main/tendermint-abci 
+WORKDIR /app/DeWS-main/tendermint-abci 
 
 USER root 
-RUN chown -R gradle /app/TendermintWS-main/tendermint-abci
+RUN chown -R gradle /app/DeWS-main/tendermint-abci
 USER gradle              
 
 RUN ./gradlew clean
