@@ -1,4 +1,4 @@
-# DeWS
+# DeWS: A Decentralized and Byzantine Fault-tolerant Web Services
 
 ## Prerequisites: 
 * Install Tendermint: https://docs.tendermint.com/v0.35/introduction/install.html
